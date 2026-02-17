@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat sayanku cintakuu nasywa BUT sainahhh.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .header {
+            color: #ff69b4;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff69b4;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            margin: 20px auto;
+            display: block;
+            animation: photoGlow 2s infinite alternate;
+        }
+
+        @keyframes photoGlow {
+            0% {
+                box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            }
+            100% {
+                box-shadow: 0 10px 40px rgba(255, 105, 180, 0.8);
+            }
+        }
+
+        .hearts {
+            font-size: 2rem;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .badge {
+            background: #ff69b4;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.8rem;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+
+        .heart-icon {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+
+        .recipient {
+            color: #ff69b4;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        .date-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .message {
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .sender {
+            color: #999;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .photo-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .photo-frame {
+            display: inline-block;
+            padding: 10px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .photo-frame img {
+            max-width: 100%;
+            width: 300px;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .photo-caption {
+            margin-top: 15px;
+            color: #ff69b4;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .infinity {
+            font-size: 3rem;
+            color: #ff69b4;
+            margin: 20px 0;
+        }
+
+        .level {
+            background: #fff3f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #ff69b4;
+            font-weight: 600;
+        }
+
+        .question-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .quiz-container {
+            position: relative;
+        }
+
+        .quiz-progress {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #ff69b4;
+        }
+
+        .progress-text {
+            color: #ff69b4;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ffe4f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            width: 11.11%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .question-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        .btn-reject {
+            background: linear-gradient(135deg, #9ca3af, #6b7280);
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.4);
+        }
+
+        .btn-reject:hover {
+            box-shadow: 0 6px 20px rgba(107, 114, 128, 0.6);
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: modalPop 0.3s ease;
+        }
+
+        @keyframes modalPop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-heart {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: heartBeat 1s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .modal-text {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Happy Valentine 💌</div>
+        
+        <div class="hearts">
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+        </div>
+
+        <div class="badge">VALENTINE SPECIAL</div>
+
+        <h1>Buat sayanku cintakuu nasywa BUT sainahhh.</h1>
+
+        <div class="subtitle">dengan cinta semua lebih berarti yakannn</div>
+
+        <div class="heart-icon">❤</div>
+
+        <div class="recipient">Untuk wawaa</div>
+
+        <div class="date-section">
+            <div>14 FEB · VALENTINE</div>
+        </div>
+
+        <div class="tagline">cinta tanpa kadaluarsa</div>
+
+        <div class="message">
+            semogaa kamuu makin sayangg samaa aqq sama tf aku seratus dong<br>
+            maniss
+        </div>
+
+        <div class="sender">dari wildan1992</div>
+
+        <div class="photo-section">
+            <div class="photo-frame">
+                <img src="photo.jpeg" alt="Foto Spesial">
+            </div>
+            <div class="photo-caption">Foto Spesial Buat Kamu 💕</div>
+        </div>
+
+        <div class="infinity">∞</div>
+
+        <div class="level">Level sayang: maksimal</div>
+
+        <div class="quiz-container">
+            <!-- Question 1 -->
+            <div class="question-section" id="question1">
+                <div class="question-icon">❓</div>
+                <div class="question">Kamu sayang nggak sama aku??</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(2, '💓')">Sayang pake bangett 💓</button>
+                    <button class="btn btn-reject" onclick="handleReject(1)">Nggak sayang 😔</button>
+                </div>
+            </div>
+
+            <!-- Reject 1 -->
+            <div class="question-section" id="reject1" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Masa nggak sayang? Yakin banget?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(1, '💓')">Sayang kok, maaf ya 💓</button>
+                    <button class="btn btn-reject" onclick="handleReject('1b')">Iya, nggak sayang 😤</button>
+                </div>
+            </div>
+
+            <!-- Reject 1b -->
+            <div class="question-section" id="reject1b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Aku sedih banget... Please, coba pikir lagi deh?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(1, '💓')">Iya deh, aku sayang kok 💕</button>
+                    <button class="btn btn-reject" onclick="handleReject('1c')">Tetep nggak 😑</button>
+                </div>
+            </div>
+
+            <!-- Reject 1c -->
+            <div class="question-section" id="reject1c" style="display: none;">
+                <div class="question-icon">💔</div>
+                <div class="question">Aku janji bakal lebih baik... Kasih aku kesempatan ya?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(1, '💓')">Yasudah, aku sayang sama kamu 💖</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-section" id="question2" style="display: none;">
+                <div class="question-icon">😤</div>
+                <div class="question">Kalo aku jadi nyambek kamu masih sayang sama aku ngga?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(3, '💕')">Sayangg 💕</button>
+                    <button class="btn btn-reject" onclick="handleReject(2)">Nggak sayang 😒</button>
+                </div>
+            </div>
+
+            <!-- Reject 2 -->
+            <div class="question-section" id="reject2" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Tapi kan wajar kalo sambek... Kamu yakin nggak sayang?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(2, '💕')">Sayang kok, maafin aku 💕</button>
+                    <button class="btn btn-reject" onclick="handleReject('2b')">Iya nggak sayang 😠</button>
+                </div>
+            </div>
+
+            <!-- Reject 2b -->
+            <div class="question-section" id="reject2b" style="display: none;">
+                <div class="question-icon">😭</div>
+                <div class="question">Aku bakal usaha buat nggak sambek lagi... Mau maafin aku?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(2, '💕')">Oke deh, tetep sayang 💗</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-section" id="question3" style="display: none;">
+                <div class="question-icon">🚽</div>
+                <div class="question">Kalo aku ngising kamu mau nemenin aku ngga?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(4, '😂')">Mau dong, aku tungguin di depan 😂</button>
+                    <button class="btn btn-reject" onclick="handleReject(3)">Nggak mau 😖</button>
+                </div>
+            </div>
+
+            <!-- Reject 3 -->
+            <div class="question-section" id="reject3" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Masa nggak mau? Aku cuma mau kamu di dekat aku aja...</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(3, '😂')">Iya deh mau 😊</button>
+                    <button class="btn btn-reject" onclick="handleReject('3b')">Nggak mau ah 😑</button>
+                </div>
+            </div>
+
+            <!-- Reject 3b -->
+            <div class="question-section" id="reject3b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Please... Aku tungguin di luar aja deh, boleh?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(3, '😂')">Yasudah boleh 💕</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-section" id="question4" style="display: none;">
+                <div class="question-icon">🍳</div>
+                <div class="question">Kalo aku laper tengah malem mau masakin aku nngaa??</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(5, '👨‍🍳')">Mau banget, aku masakin yang enak buat kamu 👨‍🍳</button>
+                    <button class="btn btn-reject" onclick="handleReject(4)">Nggak mau, capek 😪</button>
+                </div>
+            </div>
+
+            <!-- Reject 4 -->
+            <div class="question-section" id="reject4" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Tapi aku laper banget... Indomie aja deh, gampang kan?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(4, '👨‍🍳')">Iya deh aku masakin 🍜</button>
+                    <button class="btn btn-reject" onclick="handleReject('4b')">Tetep nggak mau 😴</button>
+                </div>
+            </div>
+
+            <!-- Reject 4b -->
+            <div class="question-section" id="reject4b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Aku bantu masak deh... Kita masak bareng yuk?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(4, '👨‍🍳')">Oke deh, bareng-bareng 💕</button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-section" id="question5" style="display: none;">
+                <div class="question-icon">😴</div>
+                <div class="question">Kalo aku sibuk atau capek, kamu mau nunggu aku ngga?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(6, '⏰')">Mau, aku tunggu sampe kapanpun ⏰</button>
+                    <button class="btn btn-reject" onclick="handleReject(5)">Nggak mau nunggu 😤</button>
+                </div>
+            </div>
+
+            <!-- Reject 5 -->
+            <div class="question-section" id="reject5" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Tapi aku butuh waktu... Kamu nggak bisa nunggu sebentar?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(5, '⏰')">Oke aku tunggu 💙</button>
+                    <button class="btn btn-reject" onclick="handleReject('5b')">Nggak bisa 😠</button>
+                </div>
+            </div>
+
+            <!-- Reject 5b -->
+            <div class="question-section" id="reject5b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Aku janji nggak lama kok... Please sabar ya?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(5, '⏰')">Yasudah aku sabar 💗</button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-section" id="question6" style="display: none;">
+                <div class="question-icon">⏰</div>
+                <div class="question">Jam lahirku kamu inget nngaa??</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(7, '🎂')">Inget banget! Pasti aku kasih kejutan 🎂</button>
+                    <button class="btn btn-reject" onclick="handleReject(6)">Lupa 😅</button>
+                </div>
+            </div>
+
+            <!-- Reject 6 -->
+            <div class="question-section" id="reject6" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Masa lupa? Ini penting loh buat aku...</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(6, '🎂')">Maaf, sekarang aku inget kok 🎈</button>
+                    <button class="btn btn-reject" onclick="handleReject('6b')">Beneran lupa 😓</button>
+                </div>
+            </div>
+
+            <!-- Reject 6b -->
+            <div class="question-section" id="reject6b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Gapapa aku kasih tau lagi... Nanti inget ya please?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(6, '🎂')">Iya aku janji bakal inget 💕</button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-section" id="question7" style="display: none;">
+                <div class="question-icon">📞</div>
+                <div class="question">Kalo aku ajak telponan seribu jam kamu mau nngaa??</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(8, '💬')">Mau banget! Suara kamu bikin aku tenang 💬</button>
+                    <button class="btn btn-reject" onclick="handleReject(7)">Nggak mau, kelamaan 😫</button>
+                </div>
+            </div>
+
+            <!-- Reject 7 -->
+            <div class="question-section" id="reject7" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Tapi aku pengen ngobrol sama kamu... Sejam aja gimana?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(7, '💬')">Oke deh sejam 📱</button>
+                    <button class="btn btn-reject" onclick="handleReject('7b')">Tetep nggak mau 😒</button>
+                </div>
+            </div>
+
+            <!-- Reject 7b -->
+            <div class="question-section" id="reject7b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Aku kangen suara kamu... Lima belas menit aja ya?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(7, '💬')">Yasudah mau deh 💕</button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-section" id="question8" style="display: none;">
+                <div class="question-icon">😊</div>
+                <div class="question">Kamu bahagia sama aku ngga?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="nextQuestion(9, '🌟')">Bahagia banget! Kamu segalanya buat aku 🌟</button>
+                    <button class="btn btn-reject" onclick="handleReject(8)">Nggak bahagia 😞</button>
+                </div>
+            </div>
+
+            <!-- Reject 8 -->
+            <div class="question-section" id="reject8" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Kenapa nggak bahagia? Ada yang salah sama aku?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(8, '🌟')">Nggak ada, aku bahagia kok 💛</button>
+                    <button class="btn btn-reject" onclick="handleReject('8b')">Iya nggak bahagia 😔</button>
+                </div>
+            </div>
+
+            <!-- Reject 8b -->
+            <div class="question-section" id="reject8b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Aku mau bikin kamu bahagia... Kasih aku kesempatan ya?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(8, '🌟')">Oke, aku bahagia sama kamu 💖</button>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question-section" id="question9" style="display: none;">
+                <div class="question-icon">💍</div>
+                <div class="question">Kamu mau sama aku selamanya ngga?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="showFinalAnswer('💖')">Mau banget! Sampai tua nanti 💖</button>
+                    <button class="btn btn-reject" onclick="handleReject(9)">Nggak mau 😬</button>
+                </div>
+            </div>
+
+            <!-- Reject 9 -->
+            <div class="question-section" id="reject9" style="display: none;">
+                <div class="question-icon">🥺</div>
+                <div class="question">Kenapa nggak mau? Aku serius sama kamu loh...</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToQuestion(9, '💖')">Aku juga serius, mau kok 💝</button>
+                    <button class="btn btn-reject" onclick="handleReject('9b')">Nggak bisa 😟</button>
+                </div>
+            </div>
+
+            <!-- Reject 9b -->
+            <div class="question-section" id="reject9b" style="display: none;">
+                <div class="question-icon">😢</div>
+                <div class="question">Aku cinta kamu... Aku janji bakal jaga kamu selamanya. Mau ya?</div>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="backToFinal('💖')">Iya aku mau, aku cinta kamu juga 💕</button>
+                </div>
+            </div>
+
+            <div class="quiz-progress" id="progress">
+                <div class="progress-text">Pertanyaan <span id="currentQ">1</span> dari 9</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">dibuat dengan cinta dan hati yang hati hati</div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-heart" id="modalHeart">💖</div>
+            <div class="modal-text">jawaban kamu</div>
+            <div id="answerText" style="font-size: 1.2rem; color: #333; margin: 10px 0;"></div>
+            <button class="close-btn" onclick="closeModal()">×</button>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let answers = [];
+        let currentReject = null;
+
+        function nextQuestion(nextQ, emoji) {
+            // Save answer
+            answers.push(emoji);
+            
+            // Hide current question
+            document.getElementById('question' + currentQuestion).style.display = 'none';
+            
+            // Show next question
+            document.getElementById('question' + nextQ).style.display = 'block';
+            
+            // Update progress
+            currentQuestion = nextQ;
+            document.getElementById('currentQ').textContent = currentQuestion;
+            document.getElementById('progressFill').style.width = (currentQuestion / 9 * 100) + '%';
+            
+            // Smooth scroll to question
+            document.getElementById('question' + nextQ).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function handleReject(rejectId) {
+            // Hide current section
+            if (typeof rejectId === 'number') {
+                document.getElementById('question' + rejectId).style.display = 'none';
+                currentReject = rejectId;
+            } else if (typeof rejectId === 'string' && rejectId.includes('b')) {
+                document.getElementById('reject' + rejectId.replace('b', '')).style.display = 'none';
+            } else if (typeof rejectId === 'string' && rejectId.includes('c')) {
+                document.getElementById('reject' + rejectId.replace('c', 'b')).style.display = 'none';
+            } else {
+                document.getElementById('reject' + currentReject).style.display = 'none';
+            }
+            
+            // Show rejection response
+            document.getElementById('reject' + rejectId).style.display = 'block';
+            document.getElementById('reject' + rejectId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function backToQuestion(questionNum, emoji) {
+            // Hide all reject sections for this question
+            const rejectSections = document.querySelectorAll('[id^="reject' + questionNum + '"]');
+            rejectSections.forEach(section => section.style.display = 'none');
+            
+            // Proceed to next question
+            nextQuestion(questionNum + 1, emoji);
+        }
+
+        function backToFinal(emoji) {
+            // Hide reject section
+            document.getElementById('reject9b').style.display = 'none';
+            
+            // Show final answer
+            showFinalAnswer(emoji);
+        }
+
+        function showFinalAnswer(emoji) {
+            answers.push(emoji);
+            
+            const modal = document.getElementById('modal');
+            const answerText = document.getElementById('answerText');
+            const modalHeart = document.getElementById('modalHeart');
+            
+            modalHeart.textContent = '💝';
+            answerText.innerHTML = '<div style="font-size: 1.5rem; margin: 20px 0;">Yayy! Kamu udah jawab semua pertanyaan!</div>' +
+                                   '<div style="font-size: 1.1rem; color: #ff69b4;">Terima kasih udah sayang sama aku ❤️</div>' +
+                                   '<div style="font-size: 0.9rem; margin-top: 15px; color: #666;">Aku janji akan selalu sayang sama kamu juga! 💖</div>';
+            
+            modal.style.display = 'flex';
+            createFloatingHearts();
+            
+            // Confetti effect
+            setTimeout(() => {
+                createConfetti();
+            }, 500);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        function createFloatingHearts() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-hearts';
+                    heart.textContent = ['❤', '💕', '💖', '💗', '💓', '💞'][Math.floor(Math.random() * 6)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                    heart.style.animation = `float ${Math.random() * 3 + 3}s linear`;
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 6000);
+                }, i * 100);
+            }
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'floating-hearts';
+                    confetti.textContent = ['✨', '⭐', '💫', '🌟'][Math.floor(Math.random() * 4)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                    confetti.style.animation = `float ${Math.random() * 2 + 2}s linear`;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 50);
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
